@@ -1,0 +1,119 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>TransVis | Othello Time Map</title>
+	<meta name="description" content="This map is part of a research project initiated and supervised by Tom Cheesman at Swansea University in collaboration with Kevin Flanagan and Studio NAND. Its data is nowhere near complete, but a starting point for the creation of a global map of Shakespeare’s influence in the world.">
+	<meta name="author" content="TransVis, Tom Cheesman, Studio NAND, Stephan Thiel, Kevin Flanagan">
+  <meta name="keywords" content="map, shakespeare, data, visualization, translation, othello, german, drama">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=latin-ext" rel="stylesheet">
+
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+  <link href="mapbox/mapbox.css" rel="stylesheet" media="screen">
+  <link href="css/smoothness/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet" media="screen">
+
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+	<!-- icons -->
+    <link rel="shortcut icon" href="img/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="img/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body>
+
+	<div id="main-nav" class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <ul class="nav pull-right hidden-phone">
+          <li><a href="#about" data-toggle="modal">Help <i class="icon-question-sign"></i></a></li>
+        </ul>
+        <ul class="nav">
+          <!--<a class="brand hidden-phone" href="#">Othello Corpus</a>-->
+          <li id="versionMenu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Select version
+              <b class="caret"></b>
+            </a>
+            <ul id="versionList" class="dropdown-menu">
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav">
+          <div id="lowerEnd" class="ui-filterElement"></div>
+          <div id="yearSlider" class="ui-filterElement"></div>
+          <div id="upperEnd" class="ui-filterElement"></div>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">    
+    <div id="mapContainer">
+      <div id="map"></div>
+      <div id="legend"></div>
+      <div id="d3layer" class="versions-layer"></div>
+      <div id="versionInfo"></div>
+    </div>
+    <div id="footer">Historical map data &copy; by <a href="http://www.hgis-germany.de/">HGIS Germany (Andreas Kunz, Leonhard Dietze)</a>. Created for <a href="http://delightedbeauty.org/vvv">TransVis</a></div>
+    <div id="nand-logo" class="hidden-phone">
+      <a href="http://www.nand.io" target="blank" alt="Studio NAND">
+        <img src="img/nand-logo.png" alt="Studio NAND">
+      </a>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="about" class="modal show" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-body">
+      <p>This map is part of a research project initiated and supervised by <a href="http://www.swansea.ac.uk/staff/academic/artshumanities/ltm/cheesmant/">Tom Cheesman</a> at Swansea University in collaboration with <a href="http://www.kftrans.co.uk/">Kevin Flanagan</a> and <a href="http://www.nand.io">Studio NAND</a>. Its data is nowhere near complete, but a starting point for the creation of a global map of Shakespeare&#8217;s influence in the world.</p>
+      <p><strong>TransVis</strong> collects, digitises, analyses and compares translations and variations of literary works. In an initial prototype named <a href="http://www.delightedbeauty.org/vvv">VVV (&raquo;Version Variation Visualisation&laquo;)</a>, we have proposed analysis methods, interfaces and visualization tools to explore 37 translations of Shakespeare&#8217;s Othello into German with more works translated into other languages to come.</p>
+      <p><img src="img/explanation.png" /></p>
+      <p>This map gives an overview about when and where these versions have been written, rewritten and published. Click on each version to learn more about it.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Open Map</button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33080583-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+	
+  <script src="js/jquery-1.9.0.min.js"></script>
+  <script src="js/jquery-ui-1.10.0.custom.min.js"></script>
+  <script src="js/jquery.slimscroll.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="mapbox/mapbox.js" type="text/javascript"></script>
+  <script src="js/underscore-min.js" type="text/javascript"></script>
+  <script src="js/d3.v3.min.js" type="text/javascript"></script>
+  <script src="js/data.js" type="text/javascript"></script>
+  <script src="js/util.js" type="text/javascript"></script>
+  <script src="js/d3layer.js" type="text/javascript"></script>
+  <script src="js/ui.js" type="text/javascript"></script>
+  <script src="js/main.js" type="text/javascript"></script>
+
+</body>
+</html>

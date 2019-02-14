@@ -1,0 +1,477 @@
+/*---------------------------------------------------
+    LESS Elements 0.8
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+/* Large desktop */
+@media (min-width: 1200px) {
+  #yearSlider {
+    width: 500px;
+  }
+  #versionInfo {
+    width: 350px;
+  }
+  dt {
+    width: 100px !important;
+  }
+  dd {
+    margin-left: 105px !important;
+  }
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 980px) and (max-width: 1199px) {
+  #yearSlider {
+    width: 300px;
+  }
+  #versionInfo {
+    width: 300px;
+  }
+  dt {
+    width: 100px !important;
+  }
+  dd {
+    margin-left: 105px !important;
+  }
+}
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+  #map a.zoomer {
+    display: none;
+  }
+  #yearSlider {
+    width: 210px;
+  }
+  #versionInfo {
+    width: 300px;
+  }
+  dt {
+    width: 90px !important;
+  }
+  dd {
+    margin-left: 100px !important;
+  }
+}
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+  #map a.zoomer {
+    display: none;
+  }
+  #yearSlider {
+    width: 210px;
+  }
+  #versionInfo {
+    width: 300px;
+  }
+}
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  #map a.zoomer {
+    display: none;
+  }
+  .navbar .navbar-inner .nav iframe {
+    display: none;
+  }
+  .ui-filterElement {
+    display: none;
+  }
+  #versionInfo {
+    display: none !important;
+  }
+}
+/*! Dark tooltip style */
+.qtip-map {
+  background-color: black;
+  border: none;
+  color: white;
+  font-size: 0.8em;
+  font-weight: 300;
+}
+.qtip-map .qtip-titlebar {
+  background-color: black;
+}
+.qtip-map .qtip-icon {
+  border: none;
+}
+.qtip-map .qtip-titlebar .ui-state-hover {
+  border: none;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+.navbar .navbar-inner {
+  /* background: rgba(255, 255, 255, 0.9); */
+}
+.navbar .navbar-inner .nav iframe {
+  margin-top: 9px;
+  margin-right: 10px;
+}
+.navbar .navbar-inner .nav li.dropdown > .dropdown-toggle {
+  /* background: black; */
+  color: black;
+  text-shadow: none;
+  margin-right: 10px;
+}
+.navbar .navbar-inner .nav li.dropdown.open > .dropdown-toggle {
+  background: black;
+  color: white;
+}
+.navbar .navbar-inner .nav li > a {
+  color: #333;
+}
+.navbar .navbar-inner .nav li > a:hover {
+  color: black;
+}
+.navbar .navbar-inner .nav ul.dropdown-menu li > a:hover {
+  background-color: black;
+  background-image: none;
+  color: white;
+}
+.navbar .navbar-inner .nav .dropdown-submenu:hover > a {
+  background-color: black;
+  background-image: none;
+  color: white;
+}
+.navbar .navbar-inner .ui-filterElement {
+  float: left;
+  margin-top: 12px;
+}
+.navbar .navbar-inner #lowerEnd {
+  width: 30px;
+  margin-right: 10px;
+  font-size: 0.9em;
+}
+.navbar .navbar-inner #upperEnd {
+  width: 30px;
+  font-size: 0.9em;
+}
+.navbar .navbar-inner #yearSlider {
+  margin-top: 15px;
+  margin-right: 14px;
+}
+#legend {
+  position: absolute;
+  top: 85px;
+  left: 22px;
+  color: #777;
+}
+#mapContainer {
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+#mapContainer #map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  z-index: -1000;
+  background-color: #f0f0f0;
+}
+#mapContainer #map .zoomer {
+  top: 50px;
+  margin-left: 10px;
+  z-index: 10000;
+}
+#mapContainer .versions-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  z-index: 1000;
+}
+#versionInfo {
+  background: rgba(255, 255, 255, 0.7);
+  color: black;
+  display: inline-block;
+  position: fixed;
+  right: 20px;
+  top: 60px;
+  padding: 10px;
+  border: 1px solid black;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  max-height: 85%;
+}
+#versionInfo a {
+  color: black;
+  font-weight: 600;
+}
+#versionInfo a:hover {
+  color: black;
+  background: #ffcc00;
+}
+#versionInfo a#close-version-info:hover {
+  background: white;
+}
+#versionInfo .versionInfoBody {
+  border-left: 1px solid black;
+  padding-left: 5px;
+}
+#versionInfo .versionInfoBody dl.dl-horizontal {
+  margin: 5px 0 5px 0;
+  padding: 2px;
+  background: #efefef;
+}
+#versionInfo .versionInfoBody dl.dl-horizontal dt {
+  text-align: left;
+}
+#versionInfo .versionInfoBody dl.dl-horizontal dt span {
+  font-weight: 300;
+}
+#versionInfo .versionInfoBody dl.dl-horizontal dd p {
+  margin: 0;
+}
+#versionInfo .versionInfoBody dl.dl-horizontal .label:hover {
+  cursor: pointer;
+}
+#versionInfo .vvvLink {
+  text-align: center;
+  background: #ffcc00;
+}
+#versionInfo .description-wrapper {
+  margin: 5px 0 5px 0;
+  padding: 5px;
+  background: #efefef;
+}
+#versionInfo.active {
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  -webkit-opacity: 1;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  filter: alpha(opacity=100);
+}
+/*
+*   SVG
+*   connections
+*/
+.connection {
+  stroke: black;
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.connection.hovered {
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  -webkit-opacity: 1;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  filter: alpha(opacity=100);
+}
+.connection.selected {
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  -webkit-opacity: 1;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  filter: alpha(opacity=100);
+}
+.connection.selected.filtered {
+  stroke: #aaa;
+}
+rect.unmappedBg {
+  fill: white;
+  -moz-opacity: 0.9;
+  -khtml-opacity: 0.9;
+  -webkit-opacity: 0.9;
+  opacity: 0.9;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=90);
+  filter: alpha(opacity=90);
+  stroke: black;
+  stroke-width: 1px;
+}
+/*
+*   locations
+*/
+g.location .location-label-background {
+  fill: white;
+}
+g.location .location-label {
+  font-size: 0.85em;
+  font-weight: 600;
+  fill: black;
+}
+g.location .location-label.filtered {
+  fill: #ccc;
+}
+g.location .event {
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: alpha(opacity=0);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+g.location .event.active {
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  -webkit-opacity: 1;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  filter: alpha(opacity=100);
+}
+g.location .event-label-background {
+  fill: rgba(255, 204, 0, 0.7);
+  stroke: none;
+}
+g.location .event-label {
+  font-size: 0.75em;
+  font-weight: 600;
+  fill: black;
+}
+g.location .arrow {
+  fill: black;
+  stroke: none;
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  -webkit-opacity: 1;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+  filter: alpha(opacity=100);
+}
+g.location .arrow.filtered {
+  fill: #ccc;
+}
+g.location .arrow.hidden {
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  -webkit-opacity: 0;
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+  filter: alpha(opacity=0);
+}
+g.location .version {
+  stroke: black;
+  cursor: pointer;
+}
+g.location .year-label {
+  font-size: 0.8em;
+  cursor: pointer;
+}
+g.location .version.book {
+  fill: #000000;
+}
+g.location .year-label.book {
+  fill: #ffffff;
+}
+g.location .version.script {
+  fill: #ffffff;
+}
+g.location .year-label.script {
+  fill: #000000;
+}
+g.location .version.hovered {
+  fill: #ffcc00;
+}
+g.location .year-label.hovered {
+  fill: #000000;
+}
+g.location .version.selected {
+  fill: #ffcc00;
+}
+g.location .year-label.selected {
+  fill: #000000;
+}
+g.location .version.filtered {
+  fill: #ffffff;
+  stroke: #aaaaaa;
+}
+g.location .year-label.filtered {
+  fill: #aaaaaa;
+}
+g.location .year-group-label-bg {
+  fill: white;
+  stroke: none;
+}
+g.location .year-group-label {
+  fill: #555;
+  font-size: 0.63em;
+}
+#nand-logo {
+  position: fixed;
+  bottom: 7px;
+  right: 20px;
+}
+#nand-logo img {
+  /* width: 30px; */
+  height: auto;
+}
+.map-attribution {
+  left: auto;
+  right: 60px;
+}
+.map-attribution .map-credits {
+  margin-right: 10px;
+}
+.map-attribution a {
+  color: black;
+  font-weight: 600;
+}
+.map-attribution a:hover {
+  color: black;
+  background: #ffcc00;
+  text-decoration: none;
+}
+.modal {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.modal a {
+  color: black;
+  font-weight: 600;
+}
+.modal a:hover {
+  color: black;
+  background: #ffcc00;
+  text-decoration: none;
+}
+.modal .modal-footer {
+  -webkit-box-shadow: 0 0 0 #ffffff;
+  -moz-box-shadow: 0 0 0 #ffffff;
+  box-shadow: 0 0 0 #ffffff;
+  background-color: #efefef;
+  height: 20px;
+  padding-top: 5px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 10px;
+  left: 40px;
+  font-size: 10px;
+}
+
+#footer a {
+  color: black;
+  font-weight: 700;
+}
